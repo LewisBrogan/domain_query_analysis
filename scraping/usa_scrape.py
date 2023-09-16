@@ -9,7 +9,7 @@ from selenium.common.exceptions import NoSuchElementException
 
 def write_to_csv(file_name, data):
     """Write trend data to a CSV file."""
-    with open(file_name, 'w', newline='') as file:
+    with open(file_name, 'w') as file:
         writer = csv.writer(file)
         writer.writerow(['Title', 'Bio', 'Hits'])
         for trend in data:
@@ -29,9 +29,9 @@ def fetch_trends():
         feed_list_wrappers = browser.find_elements(
             By.CLASS_NAME, 'feed-list-wrapper')
 
+        # Cleaning to be done in the Database layer using dbt, e.g. bio contains random characters
         for feed_list_wrapper in feed_list_wrappers:
             details = feed_list_wrapper.find_elements(By.CLASS_NAME, 'details')
-
             for detail in details:
                 title = detail.find_element(By.CLASS_NAME, 'details-top').text
                 bio = detail.find_element(By.CLASS_NAME, 'details-bottom').text
