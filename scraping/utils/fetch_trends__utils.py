@@ -4,7 +4,13 @@ from selenium.common.exceptions import NoSuchElementException
 
 import logging
 
-def fetch_trends():
+def fetch_trends(region):
+
+    region_url_map = {
+        'us': 'US',
+        'uk': 'GB',
+    }
+
     """Fetch Google daily trends."""
     logging.info('Browser opened...')
     trends = []
@@ -13,9 +19,11 @@ def fetch_trends():
     browser = webdriver.Firefox(options=options)
 
     try:
-        logging.info('Fetching trends......')
-        browser.get(
-            'https://trends.google.com/trends/trendingsearches/daily?geo=US')
+        logging.info(f'Fetching trends for {region}...')
+        region_code = region_url_map[region]
+        url = f'https://trends.google.com/trends/trendingsearches/daily/rss?geo={region_code}'
+        browser.get(url)
+
         feed_list_wrappers = browser.find_elements(
             By.CLASS_NAME, 'feed-list-wrapper')
 
