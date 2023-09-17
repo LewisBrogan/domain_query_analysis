@@ -8,13 +8,16 @@ from datetime import date
 def main():
     """Main function."""
     try:
+        regions = ['uk', 'us']
         current_date = date.today()
-        csv_name = f'{current_date}_daily_trends_usa.csv'
-        trends_data = fetch_trends('us')
 
-        if trends_data:
-            write_to_csv(csv_name, trends_data)
-        logging.info('File saved as: %s', csv_name)
+        for region_code in regions:
+            trends_data = fetch_trends(region_code)
+            csv_name = f'{current_date}_daily_trends_{region_code}.csv'
+
+            if trends_data:
+                write_to_csv(csv_name, trends_data)
+            logging.info('File saved as: %s', csv_name)
     except FileNotFoundError as e:
         logging.error(f"FileNotFoundError: {str(e)}")
 
