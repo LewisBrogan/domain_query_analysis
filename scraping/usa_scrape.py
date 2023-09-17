@@ -1,7 +1,7 @@
 import logging
 
 from utils.write_to_csv__utils import write_to_csv
-from scraping.utils.fetch_trends__utils import fetch_trends
+from utils.fetch_trends__utils import fetch_trends
 
 from datetime import date
 
