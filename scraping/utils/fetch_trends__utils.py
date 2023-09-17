@@ -21,7 +21,7 @@ def fetch_trends(region):
     try:
         logging.info(f'Fetching trends for {region}...')
         region_code = region_url_map[region]
-        url = f'https://trends.google.com/trends/trendingsearches/daily/rss?geo={region_code}'
+        url = f'https://trends.google.com/trends/trendingsearches/daily?geo={region_code}'
         browser.get(url)
 
         feed_list_wrappers = browser.find_elements(
