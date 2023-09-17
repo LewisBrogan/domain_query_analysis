@@ -10,7 +10,7 @@ def main():
     try:
         current_date = date.today()
         csv_name = f'{current_date}_daily_trends_usa.csv'
-        trends_data = fetch_trends()
+        trends_data = fetch_trends('us')
 
         if trends_data:
             write_to_csv(csv_name, trends_data)
