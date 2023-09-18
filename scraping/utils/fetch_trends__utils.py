@@ -19,7 +19,7 @@ def fetch_trends(region):
     browser = webdriver.Firefox(options=options)
 
     try:
-        logging.info(f'Fetching trends for {region}...')
+        logging.info(f'Fetching trends for {region.upper()}...')
         region_code = region_url_map[region]
         url = f'https://trends.google.com/trends/trendingsearches/daily?geo={region_code}'
         browser.get(url)
