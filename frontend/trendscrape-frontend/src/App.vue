@@ -13,14 +13,14 @@ import UKData from './components/UKData.vue';
     <Navbar/>
   </div>
 
-  <div class="flex mb-auto flex-grow justify-center mt-10">
+  <div class="flex  flex-grow justify-center mt-24">
     <USData/>
   </div>
-  <div class="flex mb-auto flex-grow justify-center mt-10">
+  <div class="flex flex-grow justify-center pb-72">
     <UKData/>
   </div>
 
-  <div class="fixed bottom-0 left-0 w-screen ">
+  <div class="fixed bottom-0 left-0 w-screen">
     <Footer/>
   </div>
 
