@@ -1,8 +1,8 @@
 import logging
 
-from utils.write_to_csv__utils import write_to_csv
-from utils.fetch_trends__utils import fetch_trends
-from utils.move_data_to_region_folder__utils import move_file_to_region_folder
+from utils.daily_trends_utils.write_to_csv__utils import write_to_csv
+from utils.daily_trends_utils.fetch_trends__utils import fetch_trends
+from utils.daily_trends_utils.move_data_to_region_folder__utils import move_file_to_region_folder
 
 from datetime import date
 
