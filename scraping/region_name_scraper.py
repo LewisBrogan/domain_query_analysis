@@ -14,6 +14,7 @@ from selenium.webdriver import Firefox
 
 from utils.region_name_utls.browser_setup__utils import browser_setup
 from utils.region_name_utls.fetch_region_names__utils import fetch_region_names
+from utils.region_name_utls.write_to_csv__utils import write_to_csv_region_name
 
 def main() -> None:
     """
@@ -23,14 +24,18 @@ def main() -> None:
     Raises:
         Any exceptions that gets raised by browser_setup and fetch_region_names.
     """
+    file_name: str = 'region_names.csv'
+
     browser: Firefox = browser_setup()
     if browser:
         regions: List[str] = fetch_region_names(browser)
         for region in regions:
             logging.info("Region: %s", region)
+    write_to_csv_region_name(file_name, regions)
     logging.info('Closing the browser...')
     browser.quit()
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     main()
+
